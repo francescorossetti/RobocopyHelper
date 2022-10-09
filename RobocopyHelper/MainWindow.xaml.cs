@@ -13,24 +13,38 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
 namespace RobocopyHelper
 {
-    /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainWindow : Window
     {
         public MainWindow()
         {
             this.InitializeComponent();
+
+            // Show Home Page
+            string pageName = "RobocopyHelper.Views.Home";
+            Type pageType = Type.GetType(pageName);
+            contentFrame.Navigate(pageType);
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        private void NavigationView_SelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
         {
-            myButton.Content = "Clicked";
+            if (args.IsSettingsSelected)
+            {
+                //contentFrame.Navigate(typeof(SampleSettingsPage));
+            }
+            else
+            {
+                var selectedItem = (Microsoft.UI.Xaml.Controls.NavigationViewItem)args.SelectedItem;
+                if (selectedItem != null)
+                {
+                    string selectedItemTag = (string)selectedItem.Tag;
+                    string pageName = "RobocopyHelper.Views." + selectedItemTag;
+
+                    Type pageType = Type.GetType(pageName);
+                    contentFrame.Navigate(pageType);
+                }
+            }
         }
     }
 }

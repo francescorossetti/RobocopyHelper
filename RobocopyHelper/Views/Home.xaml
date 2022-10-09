@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="RobocopyHelper.Views.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RobocopyHelper.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Border Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1*"/>                    
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <TextBox x:Name="srcPathTextBox" Margin="40,20,40,20" Grid.Row="0" Grid.Column="0" Header="Robocopy Source Directory:" PlaceholderText="Source Path" IsEnabled="False" />
+                <Button Style="{StaticResource AccentButtonStyle}" Grid.Row="0" Grid.Column="1" Content="Select Source Directory" Click="SRC_Dir_Click" />
+
+                <TextBox x:Name="dstPathTextBox" Margin="40,20,40,20" Grid.Row="1" Grid.Column="0" Header="Robocopy Destination Directory:" PlaceholderText="Destination Path" IsEnabled="False" />
+                <Button Style="{StaticResource AccentButtonStyle}" Grid.Row="1" Grid.Column="1" Content="Select Destination Directory" Click="DST_Dir_Click" />
+            </Grid>
+        </Border>
+        
+        <Border Grid.Row="1" Background="#1f3d7a"/>
+
+        <Border Grid.Row="2" Background="#152951"/>
+    </Grid>
+</Page>

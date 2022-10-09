@@ -7,7 +7,46 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-    </StackPanel>
+    <NavigationView x:Name="myNavigationView"
+    IsSettingsVisible="True"
+    IsBackButtonVisible="Collapsed"
+    IsBackEnabled="False"
+    AlwaysShowHeader="False"
+    SelectionChanged="NavigationView_SelectionChanged"
+    Header="Home"
+    PaneTitle="Menu"
+    PaneDisplayMode="Left"
+    ExpandedModeThresholdWidth="500"
+    SelectionFollowsFocus="Disabled"
+    IsTabStop="False">
+
+        <NavigationView.MenuItems>
+            <NavigationViewItem Content="Home" Tag="Home" x:Name="HomeItem" SelectsOnInvoked="True">
+                <NavigationViewItem.Icon>
+                    <SymbolIcon Symbol="Home" />
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+            <NavigationViewItemHeader Content="OPTIONS"/>
+            <NavigationViewItem Content="Menu Item2" Tag="SamplePage2" x:Name="SamplePage2Item">
+                <NavigationViewItem.Icon>
+                    <SymbolIcon Symbol="Save" />
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+            <NavigationViewItem Content="Menu Item3" Tag="SamplePage3" x:Name="SamplePage3Item">
+                <NavigationViewItem.Icon>
+                    <SymbolIcon Symbol="Refresh" />
+                </NavigationViewItem.Icon>
+            </NavigationViewItem>
+        </NavigationView.MenuItems>
+
+        <NavigationView.PaneCustomContent>
+            <HyperlinkButton x:Name="PaneHyperlink" Content="More info" Margin="12,0" Visibility="Collapsed" />
+        </NavigationView.PaneCustomContent>
+
+        <NavigationView.AutoSuggestBox>
+            <AutoSuggestBox QueryIcon="Find" AutomationProperties.Name="Search" />
+        </NavigationView.AutoSuggestBox>
+
+        <Frame x:Name="contentFrame" />
+    </NavigationView>
 </Window>
