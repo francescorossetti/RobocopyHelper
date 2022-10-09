@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RobocopyHelper (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "RobocopyHelper (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
